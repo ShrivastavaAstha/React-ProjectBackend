@@ -91,35 +91,6 @@ app.post("/api/login", async (req, res) => {
     return res.status(400).json({ success: false, error: error.message });
   }
 });
-// app.post("/api/login", async (req, res) => {
-//   try {
-//     let token;
-//     const { email, password } = req.body;
-//     const userLogin = await accountmodel.findOne({ email: email });
-//     console.log(userLogin);
-
-//     if (userLogin) {
-//       const isMatch = await bcrypt.compare(password, userLogin.password);
-//       token = await userLogin.generateAuthToken();
-//       console.log(token);
-//       res.cookie("jwttoken", token, {
-//         expires: new Date(Date.now() + 25892000000),
-//         httpOnly: true,
-//       });
-//       if (!isMatch) {
-//         return res.status(400).json({ error: "Invalid credientials" });
-//       } else {
-//         return res
-//           .status(400)
-//           .json({ success: true, message: "Login Successful!" });
-//       }
-//     } else {
-//       return res.status(200).json({ error: "Invalid credientials" });
-//     }
-//   } catch (error) {
-//     return res.status(400).json({ success: false, error: error.message });
-//   }
-// });
 
 app.post("/api/addfeedback", async (req, res) => {
   try {
